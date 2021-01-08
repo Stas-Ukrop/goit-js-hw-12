@@ -1,0 +1,63 @@
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: color 150ms var(--timing-function),
+    background-color 150ms var(--timing-function);
+}
+.form-group {
+  display: flex;
+  justify-content: center;
+}
+input {
+  margin: 20px;
+  height: 50px;
+  width: 500px;
+  font-size: 45px;
+}
+.collection {
+  display: flex;
+}
+.answer {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+.textDecor {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+}
+.contry {
+  border: 1px solid black;
+  width: 1250px;
+  height: 500px;
+}
+.contry {
+  display: flex;
+}
+.card-img {
+  margin-right: 10px;
+  height: 496px;
+  width: 1000px;
+  border: 1px solid black;
+}
+.col-md-8 {
+  width: 250px;
+}
+.col-md-7 {
+  width: 750px;
+}
