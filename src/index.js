@@ -31,10 +31,12 @@ function callBackFetch(data) {
     .catch(err => console.log(err));
 }
 function getCountry(point) {
-  getFetch(point).then(data => {
-    const putCountry = country(data[0]);
-    refs.outputCountry.innerHTML = putCountry;
-  });
+  getFetch(point)
+    .then(data => {
+      const putCountry = country(data[0]);
+      refs.outputCountry.innerHTML = putCountry;
+    })
+    .catch(err => console.log(err));
 }
 
 function addToList(data) {
