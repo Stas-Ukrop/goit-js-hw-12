@@ -61,3 +61,6 @@ input {
 .col-md-7 {
   width: 750px;
 }
+.textDecor:hover {
+  cursor: grab;
+}
