@@ -3,7 +3,7 @@ import card from './template/card.hbs';
 import country from './template/country.hbs';
 import _ from 'lodash';
 import getFetch from './js/fetchCountries';
-import { data } from 'autoprefixer';
+// import { data } from 'autoprefixer';
 import errorNotification from './js/errorPnotify';
 
 const refs = {
@@ -26,6 +26,11 @@ refs.outputText.addEventListener('click', e => {
 });
 
 function callBackFetch(data) {
+  refs.outputText.innerHTML='';
+  refs.outputCountry.innerHTML='';
+  if(!data){
+    return;
+  }
   getFetch(data)
     .then(returnListOfCountry)
     .catch(err => console.log(err));
@@ -48,7 +53,7 @@ function returnListOfCountry(data) {
   let d = [...data].length;
   if (data.status === 404) {
     return errorNotification(
-      'Too many "нихрена" found.',
+      'not found.',
       'Please enter a more "конкретно)" query!',
     );
   } else if (d > 10) {
@@ -56,6 +61,10 @@ function returnListOfCountry(data) {
       'Too many "дохрена" found.',
       'Please enter a more "конкретно)" query!',
     );
+  } else if (d === 1) {
+    addToList(data);
+    getCountry(data[0].name);
+    return;
   } else if (0 < d && d < 11) {
     addToList(data);
     return;
